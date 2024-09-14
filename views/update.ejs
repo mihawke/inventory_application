@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Update Product</title>
+</head>
+
+<body>
+  <h1>Update Product</h1>
+  <form action="/<%= product[0].id %>/update" method="post">
+    <p>ID: <%= product[0].id %></p>
+    <label for="product">Product Name:</label>
+    <input type="text" id="product" name="product" value="<%= product[0].product %>" required>
+    
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+        <% categories.forEach(cat => { %>
+          <option value="<%= cat.category %>" <%= cat.category == product.category ? 'selected' : '' %>>
+            <%= cat.category %>
+          </option>
+        <% }) %>
+      </select>
+      
+      
+    <button type="submit">Update Product</button>
+  </form>
+</body>
+
+</html>

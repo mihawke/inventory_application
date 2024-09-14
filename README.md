@@ -1,0 +1,5 @@
+1.  CREATE TABLE products (
+   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+   product VARCHAR ( 255 ),
+   category VARCHAR ( 255 ),
+);

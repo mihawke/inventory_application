@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <title>HOME</title>
+</head>
+
+<body>
+  <h1>Shopping Items</h1>
+  <div>
+    <form action="/" method="post">
+      <label for="category">Filter Products:</label>
+      <select name="category" onchange="this.form.submit()">
+        <option value="" <%=category=='' ? 'selected' : '' %> >All Products</option>
+        <% categories.forEach(item=>{ %>
+          <option value="<%= item.category %>" <%=category===item.category ? 'selected' : '' %>>
+            <%= item.category %>
+          </option>
+          <% }) %>
+      </select>
+    </form>
+  </div>
+  <div class="container">
+    <% products.forEach(element=> {%>
+      <div class="card">
+        <% if(element.product) {%>
+          <p class="product">
+            <%= element.product %>
+          </p>
+          <% }%>
+            <% if(element.category) {%>
+              <p class="category">
+                <%= element.category %>
+              </p>
+              <% }%>
+                <div class="icons">
+                  <a href="/<%= element.id %>/update">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a href="/<%= element.id %>/delete">
+                    <i class="fas fa-trash-alt"></i>
+                  </a>
+                </div>
+      </div>
+      <% }); %>
+  </div>
+</body>
+
+</html>
