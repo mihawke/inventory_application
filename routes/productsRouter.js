@@ -19,4 +19,14 @@ productRouter.post('/', productsControllers.filterProducts);
 productRouter.get('/:id/update', productsControllers.updateProductGet);
 productRouter.post('/:id/update', productsControllers.updateProductPost);
 
+//Route to delete product
+productRouter.get('/:id/delete', productsControllers.deleteProduct);
+
+//Route to delete category
+productRouter.get('/categories/:category/delete', productsControllers.deleteCategory);
+
+//Route to create product
+productRouter.get('/create', productsControllers.createProductGet);
+productRouter.post('/create', productsControllers.createProductPost);
+
 module.exports = productRouter;
